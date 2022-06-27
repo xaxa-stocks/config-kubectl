@@ -1,6 +1,11 @@
 # Container image that runs your code
-FROM ubuntu
+FROM debian:buster
 
+RUN apt-get update \
+    && apt-get install -y \
+        curl \
+        sudo \
+        git
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
